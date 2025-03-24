@@ -4,10 +4,10 @@
   "description": "MCP Server for the Tenderly API",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "tsc && chmod 755 build/index.js"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "Miljan Tekić <miljan.tekic@gmail.com>",
+  "license": "MIT",
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.7.0",
     "zod": "^3.24.2"
@@ -15,5 +15,12 @@
   "devDependencies": {
     "@types/node": "^22.13.13",
     "typescript": "^5.8.2"
-  }
+  },
+  "type": "module",
+  "bin": {
+    "tenderly-mcp-server": "./build/index.js"
+  },
+  "files": [
+    "build"
+  ]
 }
