@@ -5,18 +5,19 @@
   "main": "index.js",
   "scripts": {
     "build": "tsc && chmod 755 build/index.js",
-    "start-prod": "node build/index.js"
+    "dev": "tsx watch src/index.ts",
+    "start": "node ./build/index.js"
   },
   "author": "Miljan Tekić <miljan.tekic@gmail.com>",
   "license": "MIT",
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.7.0",
-    "@types/dotenv": "^6.1.1",
-    "dotenv": "^16.4.7",
+    "dotenv": "^16.4.5",
     "zod": "^3.24.2"
   },
   "devDependencies": {
     "@types/node": "^22.13.13",
+    "tsx": "^4.19.3",
     "typescript": "^5.8.2"
   },
   "type": "module",
