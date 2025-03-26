@@ -29,4 +29,15 @@ export async function listAlerts(client: TenderlyClient) {
     console.error("Error fetching alerts:", error);
     throw error;
   }
+}
+
+export async function getAlertById(client: TenderlyClient, alertId: string) {
+  try {
+    const response = await client.request<z.infer<typeof AlertSchema>>(`/alert/${alertId}`);
+    const validatedResponse = AlertSchema.parse(response);
+    return validatedResponse;
+  } catch (error) {
+    console.error("Error fetching alert by ID:", error);
+    throw error;
+  }
 } 
