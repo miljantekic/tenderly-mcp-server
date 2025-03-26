@@ -6,9 +6,8 @@ export class TenderlyClient {
 
   constructor(config: Config) {
     this.baseUrl = `https://api.tenderly.co/api/v1/account/${config.accountSlug}/project/${config.projectId}`;
-    console.log("Tenderly base URL:", this.baseUrl);
     this.headers = {
-      "Authorization": `Bearer ${config.accessToken}`,
+      "X-Access-Key": `${config.accessToken}`,
       "Content-Type": "application/json",
       "User-Agent": "tenderly-mcp-server/0.0.1",
     };
