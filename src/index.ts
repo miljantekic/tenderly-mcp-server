@@ -12,8 +12,16 @@ const server = new McpServer({
   name: "tenderly-mcp-server",
   version: "0.0.1",
   capabilities: {
-    resources: {},
-    tools: {},
+    resources: {
+      "tenderly://alerts": {
+        description: "All Tenderly alerts for the given project",
+      }
+    },
+    tools: {
+      get_alert: {
+        description: "Retrieve a specific Tenderly alert by ID"
+      }
+    },
   },
 });
 
@@ -28,8 +36,8 @@ server.resource(
         contents: [
           {
             uri: uri.href,
-            mimeType: "application/json",
             text: JSON.stringify(alerts, null, 2),
+            
           },
         ],
       };
